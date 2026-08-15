@@ -1,18 +1,38 @@
 const express = require("express");
-const path = require("node:path"); 
+const path = require("node:path");
+
 const app = express();
-
 const PORT = 3000;
+const storageUsers = [];
 
-// ==> mecanismo responsável por gerar minhas páginas será o EJS
-app.set('view engine', 'ejs');
+// config do EJS;
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-// ==> Define onde estão localizados os arquivos .ejs, ou seja, a pasta. 
-// ==> __dirname retorna o caminho absoluto da pasta onde este arquivo está, (meus templates estao nesse caminho)
-app.set('views', path.join(__dirname, 'views'));  
+// config do Body.
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render('index')
+  const title = "Home Pagge";
+  const message = "Mensagem Inserida pelo EJS";
+  res.render("index", { title, message });
+});
+
+app.get("/formulario", (req, res) => {
+  res.render("form");
+});
+
+app.post("/register", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  storageUsers.push({ username, password });
+
+  // redirect é usado para url, render para arquivos.
+  res.redirect("/usuarios");
+});
+
+app.get("/usuarios", (req, res) => {
+  res.render("users", { users: storageUsers });
 });
 
 app.listen(PORT, () => {

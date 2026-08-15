@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJS</title>
+    <title> <%= title %> </title>
 </head>
 <body>
     <h1>Renderizando HTML dinamico com EJS</h1>
-    <p id="<%= 'teste' + '_' + (3*4) %>">Texto qualquer</p>
+    <p>
+    <%= message %>
+
+    <% if (1===1) { %>
+      <p>verdadeiro</p>
+    <% } else { %>
+      <p>falso</p>
+    <% } %>
+
+    <ul>
+      <% for( let index=0; index <=10; index++ ) { %>
+        <li>
+          4 * <%= index %> = <%= 4 * index %>
+        </li>
+      <% } %>
+    </ul>
+  
+  </p>
 </body>
 </html>
