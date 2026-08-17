@@ -16,12 +16,24 @@
       class="d-flex flex-column justify-content-center align-items-center bg-dark text-white text-center"
       style="height: 200px; padding: 20px"
     >
-    <img src="" alt="">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-battery-full"
+        viewBox="0 0 16 16"
+      >
+        <path d="M2 6h10v4H2z" />
+        <path
+          d="M2 4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm10 1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm4 3a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8"
+        />
+      </svg>
       <h1 class="mb-2">Bem-Vindo a Lista de Tasks - ONB</h1>
       <p class="mb-3 text-white-50">
         Organize suas tarefas de forma eficiente e aumente sua produtividade
       </p>
-      <a href="#" class="btn btn-primary">Comece a gerenciar suas tarefas!</a>
+      <a href="/allTasks" class="btn btn-primary">Comece a gerenciar suas tarefas!</a>
     </div>
 
     <script
@@ -29,5 +41,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+     <%- include('partials/footer') %>
   </body>
 </html>

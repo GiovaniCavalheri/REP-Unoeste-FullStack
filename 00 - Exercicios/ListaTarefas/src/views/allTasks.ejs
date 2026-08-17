@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualize todas suas tasks</title>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center bg-dark text-white text-center"
+      style="height: 200px; padding: 20px"
+    >
+      <h1 class="mb-2">Bem-Vindo a Lista de Tasks - ONB</h1>
+    </div>
+
+  <ul>
+    <% lista.forEach(l => { %>
+      <li> <%= l.nameList %> </li>
+      <a href="/list <%=l.id%>">Visualizar tarefas</a>
+   <% }); %>
+  </ul>
+
+  <a href="/newListView">Criar nova lista</a>
+  </body>
+</html>

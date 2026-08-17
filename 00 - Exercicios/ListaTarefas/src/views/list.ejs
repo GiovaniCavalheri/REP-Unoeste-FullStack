@@ -1,0 +1,28 @@
+<h1>Veja a sua lista de itens abaixo: <%= lista.nameList %></h1>
+
+<ul>
+    <% lista.subtasks.forEach(sub => { %>
+        <li>
+            <%= sub.nameTask %>
+            <% if (sub.progress) { %>
+                (concluída)
+            <% } %>
+
+            <form action="/list/<%= lista.id %>/task/<%= sub.id %>/conclude" method="post" style="display:inline">
+                <button type="submit">Concluir</button>
+            </form>
+
+            <form action="/list/<%= lista.id %>/task/<%= sub.id %>/delete" method="post" style="display:inline">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
+
+<hr>
+
+<h2>Adicionar nova tarefa</h2>
+<form action="/list/<%= lista.id %>/tasks" method="post">
+    <input type="text" name="nameTask" id="nameTask">
+    <button type="submit">Adicionar</button>
+</form>
