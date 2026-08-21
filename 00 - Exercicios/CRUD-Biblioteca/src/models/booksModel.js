@@ -24,21 +24,26 @@ const booksModel = {
   },
 
   createNewBook(nameBook, author) {
-    let newBook = [
+    let newBook = 
       {
         id: Date.now().toString(),
         nameBook: nameBook,
         author: author,
         disponible: true,
-      },
-    ];
+      };
+    return newBook; 
+  },
+
+  saveNewBook(newBook) {
     libraryBooks.push(newBook);
   },
 
   brandDisponible(id) {
     let book = libraryBooks.find((book) => book.id === id);
-    if (!book.disponible) throw new Error("Já está emprestado!");
-    book.disponible = true;
+    if (book.disponible) {
+      book.disponible = false;
+    } else 
+        throw new Error("Não foi possível concluir esse método")
   },
 };
 
